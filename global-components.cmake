@@ -36,7 +36,7 @@ foreach(
     PCIConfigIO
     RTC
     SerialServer
-    TimeServer
+    # TimeServer  # TRENTOS has a TimeServer component also, disable to avoid conflicts
     FileServer
     VirtQueue
     BenchUtiliz

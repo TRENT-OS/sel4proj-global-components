@@ -26,6 +26,7 @@ foreach(
     components/ResetServer
     plat_components/tx2/BPMPServer
 )
+    message("add_subdirectory ${comp}")
     add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/${comp}" ${comp})
 endforeach()
 
@@ -36,12 +37,13 @@ foreach(
     PCIConfigIO
     RTC
     SerialServer
-    # TimeServer  # TRENTOS has a TimeServer component also, disable to avoid conflicts
+    TimeServer  # TRENTOS has a TimeServer component also, disable to avoid conflicts
     FileServer
     VirtQueue
     BenchUtiliz
     Ethdriver
     PicoServer
 )
+    message("include ${comp}")
     include("${CMAKE_CURRENT_LIST_DIR}/components/${comp}/CMakeLists.txt")
 endforeach()

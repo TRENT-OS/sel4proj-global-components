@@ -1,39 +1,11 @@
 #
 # Copyright 2018, Data61, CSIRO (ABN 41 687 119 230)
+# Copyright 2022, HENSOLDT Cyber GmbH
 #
 # SPDX-License-Identifier: BSD-2-Clause
 #
 
 cmake_minimum_required(VERSION 3.8.2)
 
-include("${CMAKE_CURRENT_LIST_DIR}/global-connectors.cmake")
-
-CAmkESAddImportPath(components plat_components/${KernelPlatform})
-
-foreach(
-    comp
-    IN
-    ITEMS
-    remote-drivers/picotcp-ethernet-async
-    remote-drivers/picotcp-socket-sync
-    components/modules/fdt-bind-driver
-    components/modules/dynamic-untyped-allocators
-    components/modules/single-threaded
-    components/modules/x86-iospace-dma
-    components/modules/picotcp-base
-    components/BenchUtiliz
-    components/ClockServer
-    components/Ethdriver
-    components/FileServer
-    components/GPIOMUXServer
-    components/PCIConfigIO
-    components/PicoServer
-    components/ResetServer
-    components/RTC
-    components/SerialServer
-    components/TimeServer
-    components/VirtQueue
-    plat_components/tx2/BPMPServer
-)
-    add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/${comp}" global_components/${comp})
-endforeach()
+message(DEPRECATION "call global_components_import_project()")
+global_components_import_project()
